@@ -1,5 +1,10 @@
 package com.didiglobal.booster.instrument;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author johnsonlee
  */
@@ -9,6 +14,16 @@ public class ShadowThread extends Thread {
      * {@code U+200B}: Zero-Width Space
      */
     static final String MARK = "\u200B";
+
+    @Override
+    public void start() {
+        GlobalThreadPool.execute(this);
+    }
+
+    public static Thread newThread(final Runnable target, final String name) {
+        GlobalThreadPool.execute(target);
+        return currentThread(); // 返回当前线程作为占位
+    }
 
     public static Thread newThread(final String prefix) {
         return new Thread(prefix);

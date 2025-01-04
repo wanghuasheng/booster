@@ -51,11 +51,11 @@ public class ShadowExecutors {
     // <editor-fold desc="- named fixed thread pool">
 
     public static ExecutorService newFixedThreadPool(final int nThreads, final String name) {
-        return Executors.newFixedThreadPool(nThreads, new NamedThreadFactory(name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     public static ExecutorService newFixedThreadPool(final int nThreads, final ThreadFactory factory, final String name) {
-        return Executors.newFixedThreadPool(nThreads, new NamedThreadFactory(factory, name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     // </editor-fold>
@@ -63,11 +63,11 @@ public class ShadowExecutors {
     // <editor-fold desc="- named single thread executor">
 
     public static ExecutorService newSingleThreadExecutor(final String name) {
-        return Executors.newSingleThreadExecutor(new NamedThreadFactory(name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     public static ExecutorService newSingleThreadExecutor(final ThreadFactory factory, final String name) {
-        return Executors.newSingleThreadExecutor(new NamedThreadFactory(factory, name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     // </editor-fold>
@@ -75,11 +75,11 @@ public class ShadowExecutors {
     // <editor-fold desc="- named cached thread pool">
 
     public static ExecutorService newCachedThreadPool(final String name) {
-        return Executors.newCachedThreadPool(new NamedThreadFactory(name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     public static ExecutorService newCachedThreadPool(final ThreadFactory factory, final String name) {
-        return Executors.newCachedThreadPool(new NamedThreadFactory(factory, name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     // </editor-fold>
@@ -87,11 +87,11 @@ public class ShadowExecutors {
     // <editor-fold desc="- named single thread scheduled executor">
 
     public static ScheduledExecutorService newSingleThreadScheduledExecutor(final String name) {
-        return Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory(name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     public static ScheduledExecutorService newSingleThreadScheduledExecutor(final ThreadFactory factory, final String name) {
-        return Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory(factory, name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     // </editor-fold>
@@ -99,11 +99,11 @@ public class ShadowExecutors {
     // <editor-fold desc="- named scheduled thread pool">
 
     public static ScheduledExecutorService newScheduledThreadPool(final int corePoolSize, final String name) {
-        return Executors.newScheduledThreadPool(corePoolSize, new NamedThreadFactory(name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     public static ScheduledExecutorService newScheduledThreadPool(final int corePoolSize, final ThreadFactory factory, final String name) {
-        return Executors.newScheduledThreadPool(corePoolSize, new NamedThreadFactory(factory, name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     // </editor-fold>
@@ -123,11 +123,11 @@ public class ShadowExecutors {
     // <editor-fold desc="- optimized fixed thread pool">
 
     public static ExecutorService newOptimizedFixedThreadPool(final int nThreads, final String name) {
-        return Executors.newFixedThreadPool(nThreads, new NamedThreadFactory(name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     public static ExecutorService newOptimizedFixedThreadPool(final int nThreads, final ThreadFactory factory, final String name) {
-        return Executors.newFixedThreadPool(nThreads, new NamedThreadFactory(factory, name));
+        return new DelegatedExecutorService(GlobalThreadPool.EXECUTOR);
     }
 
     // </editor-fold>
