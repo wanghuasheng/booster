@@ -3,7 +3,7 @@ apply from: "$rootDir/gradle/booster.gradle"
 dependencies {
     kapt "com.google.auto.service:auto-service:1.0"
     implementation project(':booster-api')
-    implementation project(':booster-graph-dot')
+//    implementation project(':booster-graph-dot')
     implementation project(':booster-command')
     implementation 'io.johnsonlee:once:1.2.0'
     compileOnly 'com.android.tools.build:gradle:4.0.0'
